@@ -1,0 +1,15 @@
+{
+  "name": "hostel-management-system",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "docker compose up --build",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:build": "npm --prefix frontend run build",
+    "backend:dev": "node scripts/maven-wrapper.cjs spring-boot:run",
+    "backend:test": "node scripts/maven-wrapper.cjs test"
+  },
+  "workspaces": [
+    "frontend"
+  ]
+}
