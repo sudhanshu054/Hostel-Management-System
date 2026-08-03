@@ -1,49 +1,90 @@
 # Hostel Management System
 
-Production-grade full-stack scaffold for hostel administration and student operations.
+A concise, production-ready full-stack application for managing hostel operations — students, rooms, fees, attendance, complaints and reporting.
 
-## Stack
+## Key features
 
-- Frontend: Next.js 15, TypeScript, Tailwind CSS, ShadCN-style reusable components, Zustand, Recharts, Zod
-- Backend: Spring Boot 3, Spring Security, JWT, Spring Data JPA, Jakarta Validation
+- Role-based authentication (Admin, Student) with JWT
+- Student & room management, check-ins/check-outs
+- Fees tracking, attendance and complaints workflow
+- Dashboards, reports and notifications
+- OpenAPI (Swagger) for backend API documentation
+- Docker Compose setup for local development and quick deployment
+
+## Tech stack
+
+- Frontend: Next.js (TypeScript), Tailwind CSS
+- Backend: Spring Boot 3, Spring Security, Spring Data JPA
 - Database: PostgreSQL
-- Tooling: Docker Compose, OpenAPI Swagger UI, seed data, environment-based config
+- Tooling: Docker Compose, Swagger/OpenAPI, Zod (validation)
 
-## Quick Start
+## Quick start (Docker)
+
+1. Build and run containers:
 
 ```bash
-docker compose up --build
+docker compose up --build -d
 ```
+
+2. Services:
 
 - Frontend: http://localhost:3000
 - Backend: http://localhost:8080
-- Swagger: http://localhost:8080/swagger-ui.html
+- Swagger UI: http://localhost:8080/swagger-ui.html
 
-## Test Credentials
+## Local development
+
+Frontend
+
+```bash
+npm install --prefix frontend
+npm run --prefix frontend dev
+```
+
+Backend
+
+```bash
+./mvnw -f backend spring-boot:run
+# or
+npm run backend:dev
+```
+
+Database
+
+Create a PostgreSQL database (example):
+
+- Name: `hostel_management`
+- User: `hostel`
+- Password: `hostel_password`
+
+Alternatively, set environment variables to override connection details (see backend application config).
+
+## Environment variables (examples)
+
+- DATABASE_URL or SPRING_DATASOURCE_URL
+- SPRING_DATASOURCE_USERNAME
+- SPRING_DATASOURCE_PASSWORD
+- JWT_SECRET
+- NEXT_PUBLIC_API_URL (for deployed frontend)
+
+## Test credentials
 
 - Admin: `admin@hostel.test` / `Admin@123`
 - Student: `student@hostel.test` / `Student@123`
 
-## Local Development
+## API examples
 
-```bash
-npm install --prefix frontend
-npm run frontend:dev
-npm run backend:dev
-```
-
-Create PostgreSQL database `hostel_management` with user `hostel` and password `hostel_password`, or override values with environment variables.
+See: `backend/src/main/resources/sample-requests.http` for sample requests and the live Swagger UI for full API docs.
 
 ## Deployment
 
-- Vercel frontend: set `NEXT_PUBLIC_API_URL=https://your-render-service.onrender.com/api/v1`
-- Render backend: deploy `backend/`, set PostgreSQL connection variables and `JWT_SECRET`
-- PostgreSQL: use Render PostgreSQL or any managed PostgreSQL 16-compatible database
+- Frontend: deploy static Next.js app (Vercel recommended). Set `NEXT_PUBLIC_API_URL` to your backend endpoint.
+- Backend: deploy Spring Boot app (Render, Heroku, or any JVM host). Provide PostgreSQL credentials and `JWT_SECRET`.
 
-## API Samples
+## Contributing
 
-See [backend/src/main/resources/sample-requests.http](backend/src/main/resources/sample-requests.http).
+Contributions are welcome. Please open issues or pull requests with clear descriptions and tests where appropriate.
 
-## Modules Included
+## License
 
-Authentication, dashboards, student management, room management, fees, complaints, attendance, notifications, reports, settings, audit-ready entities, AI room recommendation stub, and Swagger API documentation.
+Specify your license here (e.g., MIT).
