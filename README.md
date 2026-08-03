@@ -81,10 +81,3 @@ See: `backend/src/main/resources/sample-requests.http` for sample requests and t
 - Frontend: deploy static Next.js app (Vercel recommended). Set `NEXT_PUBLIC_API_URL` to your backend endpoint.
 - Backend: deploy Spring Boot app (Render, Heroku, or any JVM host). Provide PostgreSQL credentials and `JWT_SECRET`.
 
-## Contributing
-
-Contributions are welcome. Please open issues or pull requests with clear descriptions and tests where appropriate.
-
-## License
-
-Specify your license here (e.g., MIT).
